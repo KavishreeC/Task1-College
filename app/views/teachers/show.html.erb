@@ -1,0 +1,27 @@
+
+<div class="container">
+<h2 class=" my-4">Teacher Details</h2>
+<p>
+  <strong>Name:</strong>
+  <%= @teacher.name %>
+</p>
+
+<p>
+  <strong>Dept:</strong>
+  <%= @teacher.dept %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @teacher.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @teacher.phone %>
+</p>
+
+<%= link_to 'Edit', edit_teacher_path(@teacher) , class: "btn btn-primary" %> 
+<%= link_to 'Back', teachers_path, class: "btn btn-primary"%>
+</div>
+
