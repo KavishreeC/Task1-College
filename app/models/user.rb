@@ -1,7 +1,5 @@
 class User < ApplicationRecord
- 
   enum role: [:admin , :teacher, :student]
-
   after_initialize :set_default_role, :if => :new_record?
 
   PASSWORD_FORMAT = /\A
@@ -9,14 +7,12 @@ class User < ApplicationRecord
   (?=.*[[:^alnum:]]) # symbol
   /x
 
-
-  
   validates :first_name, presence:true
   validates :last_name, presence:true
   validates :phone, presence: true,uniqueness: true,length: { maximum: 10 }
   validates :password,format: PASSWORD_FORMAT
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
-  after_create :new_user
+  after_save :new_user
 
   def set_default_role
     self.role ||= :student

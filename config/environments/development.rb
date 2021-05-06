@@ -82,7 +82,7 @@ Rails.application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["GMAIL_USERNAME"],
-  password: ENV["GMAIL_PASSWORD"]
+    password: ENV["GMAIL_PASSWORD"]
   }
 
   config.action_mailer.delivery_method = :letter_opener
